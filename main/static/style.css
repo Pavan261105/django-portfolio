@@ -1,0 +1,135 @@
+/* GENERAL STYLES */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+/* NAVBAR */
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* .navbar.scrolled {
+  background-color: #212529 !important;
+} */
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0dcaf0 !important;
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  /* padding-top: 120px; */
+  
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.hero .btn {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* PROJECT CARDS */
+.card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* BADGES */
+.badge {
+  font-size: 0.75rem;
+  background-color: #e2e6ea;
+  color: #333;
+  border-radius: 12px;
+  padding: 0.4em 0.75em;
+}
+
+/* CONTACT FORM */
+form input, form textarea {
+  border-radius: 10px !important;
+  padding: 0.75rem;
+}
+
+form .btn {
+  padding: 0.75rem;
+  font-weight: 500;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1d1d1d;
+}
+
+footer a {
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* SECTION SPACING */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero {
+    text-align: left;
+    padding: 3rem 1rem;
+  }
+
+  .card-img-top {
+    height: 160px;
+  }
+}
+nav.navbar {
+  border-bottom: 1px solid #ddd;
+}
+

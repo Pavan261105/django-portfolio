@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}{{ blog.title }} | Blog{% endblock %}
+
+{% block content %}
+<section class="container py-5" data-aos="fade-up">
+  <!-- Title -->
+  <div class="text-center mb-4">
+    <h1 class="fw-bold">{{ blog.title }}</h1>
+    <p class="text-muted small">Published on {{ blog.created_at|date:"d M, Y" }}</p>
+  </div>
+
+  <!-- Cover Image -->
+  {% if blog.cover_image %}
+    <div class="text-center mb-4">
+      <img src="{{ blog.cover_image.url }}" class="img-fluid rounded shadow-sm" alt="{{ blog.title }}" style="max-height: 450px; object-fit: cover;">
+    </div>
+  {% endif %}
+
+  <!-- Blog Content -->
+  <article class="mx-auto" style="max-width: 850px; line-height: 1.8; font-size: 1.05rem;">
+    {{ blog.content|safe }}
+
+  </article>
+
+  <!-- Back Button -->
+  <div class="text-center mt-5">
+    <a href="{% url 'blog_list' %}" class="btn btn-outline-secondary btn-sm">
+      ← Back to Blog
+    </a>
+  </div>
+</section>
+{% endblock %}

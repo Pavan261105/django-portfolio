@@ -1,0 +1,109 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}About | Pavan Mehta{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <!-- Hero Intro -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6" data-aos="fade-right">
+      <h1 class="fw-bold">Hey there! 👋 I’m Pavan Mehta</h1>
+      <p class="lead mt-3">
+        A self-taught <strong>Python & Django developer</strong> with a passion for solving real-world problems using clean, scalable code. I build fast, modern, and responsive web apps.
+      </p>
+      <p>Currently applying for full-time roles and working on personal/portfolio projects.</p>
+      <a href="{% url 'contact' %}" class="btn btn-info mt-3">Let’s Work Together</a>
+    </div>
+    <div class="col-md-6 text-center" data-aos="fade-left">
+      <img src="{% static 'images/pavan.jpg' %}" alt="Pavan Mehta" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="mb-5" data-aos="fade-up">
+    <h3 class="text-center mb-4">💻 Tech Stack I Use</h3>
+    <div class="row text-center">
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <strong>Python & Django</strong>
+          <p class="small text-muted">Backend Development</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <strong>HTML, CSS, JS</strong>
+          <p class="small text-muted">Frontend + UI</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <strong>MySQL / PostgreSQL</strong>
+          <p class="small text-muted">Databases</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-0 p-4">
+          <strong>Git & Deployment</strong>
+          <p class="small text-muted">Version Control</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Journey Timeline -->
+  <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+    <h3 class="text-center mb-4">📅 My Journey</h3>
+    <ul class="list-group list-group-flush timeline-list">
+      <li class="list-group-item">
+        <strong>2025 (Present)</strong> – Polishing portfolio, building live apps, and applying off-campus.
+      </li>
+      <li class="list-group-item">
+        <strong>2024</strong> – Built real-world Django projects and launched this portfolio site.
+      </li>
+      <li class="list-group-item">
+        <strong>2023</strong> – Learned full stack basics (HTML, CSS, JS, Python).
+      </li>
+      <li class="list-group-item">
+        <strong>2022</strong> – Started coding while studying BCA.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Experience Section -->
+    <div class="justify-content-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-md-8">
+        <h4 class="mb-4">💼 Experience</h4>
+        {% for exp in experiences %}
+          <div class="mb-3 border p-3 rounded shadow-sm">
+            <h5 class="mb-1">{{ exp.role }} <small class="text-muted">at {{ exp.company }}</small></h5>
+            <p class="text-muted small">
+              {{ exp.start_date|date:"M Y" }} – 
+              {% if exp.is_current %}Present{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
+            </p>
+            <p>{{ exp.description|safe }}</p>
+            <p class="mb-0">
+              {% for tech in exp.tech_stack|split_by_comma %}
+                <span class="badge me-1">{{ tech }}</span>
+              {% endfor %}
+            </p>
+          </div>
+        {% empty %}
+          <p>No experience added yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  <!-- Why Hire Me -->
+  <div class="bg-light p-4 rounded text-center" data-aos="fade-up">
+    <h4 class="mb-3">🚀 Why Hire Me?</h4>
+    <p class="mb-2">✅ I solve problems, not just write code</p>
+    <p class="mb-2">✅ I bounce back stronger after rejections</p>
+    <p class="mb-2">✅ I learn fast, adapt faster</p>
+    <p class="mb-2">✅ I build real-world projects with clean UI and logic</p>
+    <a href="{% static 'Pavan_Mehta_Resume.pdf' %}" class="btn btn-outline-dark mt-3" target="_blank">Download Resume</a>
+  </div>
+</section>
+{% endblock %}

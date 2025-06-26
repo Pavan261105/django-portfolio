@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load custom_tags %} 
+
+{% block title %}Contact | Pavan Mehta{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h2>Get in Touch</h2>
+    <p class="lead">Have a project or question? I’d love to hear from you!</p>
+  </div>
+
+  <div class="row justify-content-center">
+    <!-- Contact Form -->
+    <div class="col-md-6" data-aos="fade-right">
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="john@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea name="message" id="message" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-info px-4">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="col-md-5 mt-5 mt-md-0" data-aos="fade-left">
+      <div class="bg-light p-4 rounded shadow-sm">
+        <h5>Contact Info</h5>
+        <p><i class="fas fa-envelope me-2 text-info"></i> mehta26.tech@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt me-2 text-danger"></i> Rajkot, Gujarat, India</p>
+        <p><i class="fas fa-phone me-2 text-success"></i> +91 99794 12610</p>
+        <hr>
+        <h6 class="mt-4">Social Media</h6>
+        <a href="www.linkedin.com/in/pavanmehta-developer" class="text-decoration-none me-3">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://github.com/Pavan261105" class="text-decoration-none me-3">
+          <i class="fab  fa-lg"></i>
+        </a>
+        <a href="mailto:mehta26.tech@gmail.com" class="text-decoration-none">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
