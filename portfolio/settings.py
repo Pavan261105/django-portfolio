@@ -27,10 +27,15 @@ SECRET_KEY = 'django-insecure-6rf7z63aq00=1j!sp&dri0g!gx4%ix$0+jf$xbk_354mgnbyc6
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['your-render-url.onrender.com']  # You’ll update this after deployment
+DEBUG = os.getenv("DEBUG", "True") != "False"
+
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-key")
+
+ALLOWED_HOSTS = ['main.onrender.com']
 
 if os.getenv("RENDER"):
-    DEBUG = False
+    ALLOWED_HOSTS.append('*')
+
 
 
 
@@ -48,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
