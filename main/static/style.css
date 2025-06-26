@@ -133,15 +133,14 @@ nav.navbar {
   border-bottom: 1px solid #ddd;
 }
 
+/* Default for mobile/smaller devices */
+.profile-img {
+  max-width: 375px;
+}
 
-/* Add this in your CSS file or inside a <style> tag */
-@media (max-width: 768px) {
+/* Override for medium and larger screens (e.g., laptops and desktops) */
+@media (min-width: 768px) {
   .profile-img {
-    max-width: 80%; /* Scale image based on screen width */
-    height: auto;
-  }
-
-  body {
-    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+    max-width: 450px;
   }
 }
