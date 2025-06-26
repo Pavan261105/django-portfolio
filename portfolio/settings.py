@@ -31,7 +31,13 @@ DEBUG = os.getenv("DEBUG", "True") != "False"
 
 SECRET_KEY = os.getenv("SECRET_KEY", "fallback-key")
 
-ALLOWED_HOSTS = ['main.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+# Add your Render URL too, if deploying
+if os.getenv("RENDER"):
+    ALLOWED_HOSTS.append('main.onrender.com')
+    ALLOWED_HOSTS.append('*')  # optional for testing on Render
+
 
 if os.getenv("RENDER"):
     ALLOWED_HOSTS.append('*')
