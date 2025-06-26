@@ -6,6 +6,12 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.urls import re_path
+from django.views.static import serve
+from django.conf import settings
+
+def protected_serve(request, path):
+    return serve(request, path, document_root=settings.MEDIA_ROOT)
 
 def home(request):
     projects = Project.objects.all()[:3]
